@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1cde4a99-dbcb-4756-b5b7-a55706c29675" name="Default" comment="" />
+    <list default="true" id="1cde4a99-dbcb-4756-b5b7-a55706c29675" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coordinator.py" afterPath="$PROJECT_DIR$/coordinator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/env/lib/python2.7/site-packages/matplotlib/tests/test_dates.py" afterPath="$PROJECT_DIR$/env/lib/python2.7/site-packages/matplotlib/tests/test_dates.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pandas/core/resample.py" afterPath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pandas/core/resample.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pandas/tests/indexes/datetimes/test_misc.py" afterPath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pandas/tests/indexes/datetimes/test_misc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pandas/tests/scalar/test_period.py" afterPath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pandas/tests/scalar/test_period.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pandas/tests/tseries/test_timezones.py" afterPath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pandas/tests/tseries/test_timezones.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pandas/tseries/offsets.py" afterPath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pandas/tseries/offsets.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pytz-2017.2.dist-info/DESCRIPTION.rst" afterPath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pytz-2017.2.dist-info/DESCRIPTION.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pytz/__init__.py" afterPath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pytz/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pytz/tzinfo.py" afterPath="$PROJECT_DIR$/env/lib/python2.7/site-packages/pytz/tzinfo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/matrix.py" afterPath="$PROJECT_DIR$/matrix.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/normalize.py" afterPath="$PROJECT_DIR$/normalize.py" />
+    </list>
     <ignored path="projeto.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -28,7 +43,7 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="172">
               <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -37,41 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dijktra.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dijktra.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cost.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/input/cost.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="distance.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/input/distance.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="matrix.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/matrix.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="480">
+              <caret line="32" column="54" lean-forward="false" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -82,8 +67,20 @@
       <file leaf-file-name="coordinator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coordinator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="26" />
+            <state relative-caret-position="105">
+              <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="165" column="52" lean-forward="false" selection-start-line="165" selection-start-column="52" selection-end-line="165" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -92,21 +89,9 @@
       <file leaf-file-name="normalize.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/normalize.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="repository.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/repository.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -130,12 +115,13 @@
         <option value="$PROJECT_DIR$/input.txt" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/input.csv" />
-        <option value="$PROJECT_DIR$/matrix.py" />
         <option value="$PROJECT_DIR$/input/cost.txt" />
         <option value="$PROJECT_DIR$/input/distance.txt" />
+        <option value="$PROJECT_DIR$/repository.py" />
         <option value="$PROJECT_DIR$/coordinator.py" />
         <option value="$PROJECT_DIR$/normalize.py" />
-        <option value="$PROJECT_DIR$/repository.py" />
+        <option value="$PROJECT_DIR$/matrix.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -547,7 +533,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="172">
           <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
@@ -555,18 +541,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coordinator.py">
+    <entry file="file://$PROJECT_DIR$/repository.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/matrix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="75">
+          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
@@ -575,19 +553,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/normalize.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="285">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/repository.py">
+    <entry file="file://$PROJECT_DIR$/matrix.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+        <state relative-caret-position="480">
+          <caret line="32" column="54" lean-forward="false" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coordinator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="165" column="52" lean-forward="false" selection-start-line="165" selection-start-column="52" selection-end-line="165" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>

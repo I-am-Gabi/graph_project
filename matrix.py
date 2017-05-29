@@ -31,24 +31,3 @@ class Matrix:
                     elif label[0] == "weight":
                         self.weight = float(label[1].strip().strip('\n'))
         self.connections = np.matrix(self.connections)
-
-    def cost_normalize(self, v):
-        max = float(self.connections.max())
-        min = float(self.connections.min())
-        return (max - v) / (max - min)
-
-    def normalize(self):
-        func = None
-        if self.type == 'cost':
-            func = self.cost_normalize
-        else:
-            pass
-
-        func = np.vectorize(func)
-        self.connections_normalize = func(self.connections)
-        print(self.connections_normalize)
-
-if __name__ == '__main__':
-    m = Matrix()
-    m.build('cost.txt')
-    m.normalize()

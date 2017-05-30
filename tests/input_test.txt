@@ -1,0 +1,8 @@
+0,1,1
+1,0,0
+1,0,0
+
+nodes: a, b, c
+type: cost
+name: cost
+weight: 0.3

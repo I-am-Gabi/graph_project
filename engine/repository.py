@@ -1,6 +1,6 @@
 from os import walk
 
-from matrix import Matrix
+from engine.matrix import Matrix
 
 
 class Repository:
@@ -9,11 +9,11 @@ class Repository:
 
     def build(self):
         files = []
-        for (dirpath, dirnames, filenames) in walk('./input/'):
+        for (dirpath, dirnames, filenames) in walk('../inputs/'):
             files = filenames
             break
 
         for file in files:
             m = Matrix()
-            m.build('input/' + file)
+            m.build('../inputs/' + file)
             self.data.append(m)

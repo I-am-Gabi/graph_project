@@ -23,7 +23,8 @@ class Matrix:
                     flag_matrix = False
                     label = line.split(':')
                     if label[0] == "nodes":
-                        self.nodes = label[1].strip().strip('\n').split(',')
+                        line = line.split(':')[1]
+                        self.nodes = [x.strip(' ') for x in line.strip('\n').split(',')]
                     elif label[0] == "type":
                         self.type = label[1].strip().strip('\n')
                     elif label[0] == "name":

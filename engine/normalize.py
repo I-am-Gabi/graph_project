@@ -1,21 +1,24 @@
 import numpy as np
 
+m = None
+
 
 def normalize(repository):
+    global m
     func = None
 
     for matrix in repository.data:
+        m = matrix
         if matrix.type == 'cost':
-            func = matrix.cost_normalize
+            func = cost_normalize
         else:
             pass
 
         func = np.vectorize(func)
         matrix.connections_normalize = func(matrix.connections)
-        print(matrix.connections_normalize)
 
 
-def cost_normalize(matrix, v):
-    max = float(matrix.connections.max())
-    min = float(matrix.connections.min())
+def cost_normalize(v):
+    max = float(m.connections.max())
+    min = float(m.connections.min())
     return (max - v) / (max - min)

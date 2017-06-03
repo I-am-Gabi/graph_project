@@ -6,6 +6,7 @@ from engine.matrix import Matrix
 class Repository:
     def __init__(self):
         self.data = []
+        self.build()
 
     def build(self):
         files = []

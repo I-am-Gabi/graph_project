@@ -3,7 +3,7 @@
 1,0,0,5
 0,2,5,0
 
-nodes: a, b, c, d
+nodes: 0, 1, 2, 3
 type: cost
 name: distance
 weight: 0.5

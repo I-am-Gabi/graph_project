@@ -2,11 +2,10 @@ from engine.repository import Repository
 
 # Algorítmo para verificação e identificação de gargalos.
 
-def gargalo(matrix):
+def gargalo(matrix, origem, destino):
 
-    no_origem = int(matrix.nodes[0])
-    no_destino = int(matrix.nodes[3])
-
+    no_origem = int(matrix.nodes[origem])
+    no_destino = int(matrix.nodes[destino])
 
     caminho = []
     pais = []
@@ -44,7 +43,7 @@ def gargalo(matrix):
         caminho.append(no)
     print('caminho: '+str(caminho))
 
-    # pegar menor valor das conexões
+    # pegar menor e maior valor das conexões
     valor_menor = None
     origem_menor = None
     destino_menor = None

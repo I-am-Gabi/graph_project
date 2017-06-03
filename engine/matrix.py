@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 
-class Matrix:
+class Matrix(object):
     def __init__(self):
         self.connections = None
         self.connections_normalize = None
@@ -32,3 +32,15 @@ class Matrix:
                     elif label[0] == "weight":
                         self.weight = float(label[1].strip().strip('\n'))
         self.connections = np.matrix(self.connections)
+
+    def get_adjs(self, index):
+        adjs = []
+
+        # Roda node vezes =  vertice vezes
+        for node in range(len(self.nodes)):
+            if node == index:
+                continue
+            if self.connections.item(index, node) != 0:
+                adjs.append(node)
+
+        return adjs

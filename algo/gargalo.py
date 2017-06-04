@@ -2,10 +2,24 @@ from engine.repository import Repository
 
 # Algorítmo para verificação e identificação de gargalos.
 
-def gargalo(matrix, origem, destino):
+def gargalo(matrix):
+    sugestoes = []
+    for index_origem in range(len(matrix.nodes)):
+        # print('origem: '+str(index_origem))
+        for index_destino in range(index_origem, len(matrix.nodes)):
+            # print('destino: ' + str(index_destino))
+            if index_origem == index_destino:
+                continue
+            s = gargalo_origem_destino(matrix, index_origem, index_destino)
+            if s != None:
+                sugestoes.append(s)
+    return sugestoes
 
-    no_origem = int(matrix.nodes[origem])
-    no_destino = int(matrix.nodes[destino])
+
+def gargalo_origem_destino(matrix, index_origem, index_destino):
+
+    no_origem = index_origem
+    no_destino = index_destino
 
     caminho = []
     pais = []
@@ -36,6 +50,9 @@ def gargalo(matrix, origem, destino):
     while no_atual !=  no_origem:
         no_atual = pais[no_atual]
         caminho.append(no_atual)
+
+    if len(caminho) <= 2:
+        return None
 
     caminho_reverso = reversed(caminho)
     caminho = []

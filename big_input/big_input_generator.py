@@ -1,20 +1,24 @@
-from scipy.sparse import *
-from scipy import *
 import numpy as np
 
+linhas = 2000
+colunas = 2000
 
-def read_file():
-    with open("USA-road-d.NY.gr", "r") as ins:
-        for line in ins:
-            if "p sp " in line:
-                n_nodes = int(line.split()[2])
-                m = -1 * np.ones((2, 5))
-            if "a " in line:
-                data = line.split()
-                i = int(data[1]) - 1
-                j = int(data[2]) - 1
-                m.itemset((i, j), int(data[3]))
+m = np.random.rand(linhas, colunas)
+# print(m.item(0, 0))
 
+for linha in range(linhas):
+    for coluna in range(colunas):
+        if linha == coluna:
+            m.itemset((linha, coluna), 0)
+        elif coluna > linha:
+            continue
+        elif coluna < linha:
+            m.itemset((coluna, linha), m.item(linha, coluna))
 
-m = np.random.rand(2000, 2000)
-print(m)
+print(m.item(5, 5))
+
+print(m.item(0, 1))
+print(m.item(1, 0))
+
+print(m.item(55, 100))
+print(m.item(100, 55))

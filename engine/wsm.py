@@ -7,6 +7,9 @@ def wsm(repository):
         for j in range(0, size):
             wsm_score = 0
             for m in repository.data:
+                if m.connections_normalize.item(i, j) < 0:
+                    wsm_score = -1
+                    continue
                 wsm_score += m.connections_normalize.item(i, j) * m.weight
             l.append(float(str(wsm_score)[:4]))
         new_matrix.append(l)

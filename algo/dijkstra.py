@@ -4,7 +4,7 @@ def dijkstra(matrix, start, target):
     rot = []
     A = []
     F = []
-    for i in range(0, len(matrix[0]) - 1):
+    for i in range(0, len(matrix[0])):
         d.append(-1)
         rot.append(0)
         A.append(i)
@@ -21,14 +21,12 @@ def dijkstra(matrix, start, target):
                 min_dist = d[node]
                 r = node
 
-        #print("r: " + str(r))
         F.append(r)
         A.remove(r)
         for node in A:
             if matrix[node][r] == -1:
                 continue
 
-            #print("adj: " + str(node) + " d: " + str(matrix[node][r]))
             if d[node] != -1 and d[node] < (d[r] + matrix[node][r]):
                 p = d[node]
             else:

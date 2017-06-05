@@ -39,5 +39,7 @@ if __name__ == '__main__':
 
     result = wsm(r)
 
-    print(dijkstra(result, 0, 3))
+    final_result = dijkstra(result, 0, 3)[::-1]
+
+    print(final_result)
 

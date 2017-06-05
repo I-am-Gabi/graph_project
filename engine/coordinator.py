@@ -34,7 +34,7 @@ def print_matrix(filename, data):
 if __name__ == '__main__':
     while True:
         try:
-            escolha = int(raw_input('Escolha uma ação. Opções disponíveis:\n1. Caminho mínimo\n2. Identificar gargalos\n'))
+            escolha = eval(input('Escolha uma ação. Opções disponíveis:\n1. Caminho mínimo\n2. Identificar gargalos\n'))
             r = Repository()
             r.build()
             # dijikstra
@@ -43,8 +43,8 @@ if __name__ == '__main__':
 
                 result = wsm(r)
 
-                start = int(raw_input('Escolha o nó de partida do pacote\n'))
-                target = int(raw_input('Escolha o nó de chegada do pacote\n'))
+                start = eval(input('Escolha o nó de partida do pacote\n'))
+                target = eval(input('Escolha o nó de chegada do pacote\n'))
 
                 final_result = dijkstra(result, start, target)[::-1]
 

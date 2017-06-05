@@ -39,9 +39,6 @@ if __name__ == '__main__':
             if escolha == 1:
                 normalize(r)
 
-                print_matrix('../output/connections.log', r.data[0].connections)
-                print_matrix('../output/normalize.log', r.data[0].connections_normalize)
-
                 result = wsm(r)
 
                 print(dijkstra(result, 0, 3))

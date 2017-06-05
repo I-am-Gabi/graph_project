@@ -17,7 +17,7 @@ class Matrix(object):
             for line in f:
                 if line.strip() and flag_matrix:
                     line = [int(x) for x in line.strip().strip('\n').split(',')]
-                    line = [x if x != 0 else float("inf") for x in line]
+                    line = [x if x != 0 else -1 for x in line]
                     self.connections.append(line)
                 elif not line.strip() or not flag_matrix:
                     flag_matrix = False

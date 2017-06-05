@@ -2,15 +2,14 @@
 # -*- coding: utf-8 -*-
 import sys
 import numpy as np
-
-sys.path.append('../')
-
 from algo.dijkstra import dijkstra
 from algo.gargalo import gargalo
 
 from engine.repository import Repository
 from engine.wsm import wsm
 from engine.normalize import normalize
+
+sys.path.append('../')
 
 
 def print_matrix(filename, data):
@@ -57,7 +56,6 @@ if __name__ == '__main__':
                                          'Distância\n'))
                     if escolha != 1 and escolha != 2:
                         raise NameError
-
 
                     index_matrix = escolha - 1
 

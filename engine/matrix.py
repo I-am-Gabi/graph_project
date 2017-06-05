@@ -40,7 +40,7 @@ class Matrix(object):
         for node in range(len(self.nodes)):
             if node == index:
                 continue
-            if self.connections.item(index, node) != 0:
+            if self.connections.item(index, node) != -1:
                 adjs.append(node)
 
         return adjs

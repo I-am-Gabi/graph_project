@@ -2,6 +2,7 @@ from engine.repository import Repository
 
 # Algorítmo para verificação e identificação de gargalos.
 
+
 def gargalo(matrix):
     sugestoes = []
     for index_origem in range(len(matrix.nodes)):
@@ -11,7 +12,7 @@ def gargalo(matrix):
             if index_origem == index_destino:
                 continue
             s = gargalo_origem_destino(matrix, index_origem, index_destino)
-            if s != None:
+            if s is not None:
                 sugestoes.append(s)
     return sugestoes
 
@@ -47,14 +48,13 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
         cores[no_atual] = 'b'
 
     for i in range(len(matrix.nodes)):
-        if cores[i] =='w':
+        if cores[i] == 'w':
             descoconexos.append(i)
-
 
     # construir caminho a partir do DFS
     no_atual = no_destino
     caminho.append(no_atual)
-    while no_atual !=  no_origem:
+    while no_atual != no_origem:
         no_atual = pais[no_atual]
         caminho.append(no_atual)
 
@@ -71,43 +71,21 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
     valor = None
     origem = None
     destino = None
-    for index in range(0,(len(caminho)-1)):
+    for index in range(0, (len(caminho)-1)):
         if matrix.type == 'cost':
-            if valor == None or matrix.connections.item(caminho[index], (caminho[index + 1])) > valor:
+            if valor is None or matrix.connections.item(caminho[index], (caminho[index + 1])) > valor:
                 valor = matrix.connections.item(caminho[index], (caminho[index + 1]))
                 origem = index
                 destino = index + 1
         else:
-            if valor == None or matrix.connections.item(caminho[index], (caminho[index + 1])) < valor:
+            if valor is None or matrix.connections.item(caminho[index], (caminho[index + 1])) < valor:
                 valor = matrix.connections.item(caminho[index], (caminho[index + 1]))
                 origem = index
                 destino = index + 1
 
-    dados = {}
+    dados = {'gargalo': {'caminho': caminho, 'aresta_origem': origem, 'aresta_destino': destino, 'valor_aresta': valor}}
 
-    dados['gargalo'] = {'caminho': caminho, 'aresta_origem': origem,'aresta_destino': destino,'valor_aresta': valor}
     if descoconexos:
         dados['nos_desconexos'] = descoconexos
 
     return dados
-
-reposirorio = Repository()
-# print(reposirorio.data[0].connections) # matrix de banda
-sugestoes = gargalo(reposirorio.data[0])
-print(sugestoes)
-
-# [{'caminho': [0, 5, 6, 3, 2, 1], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
-#  {'caminho': [0, 5, 6, 3, 2], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
-#  {'caminho': [0, 5, 6, 3], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
-#  {'caminho': [0, 5, 6, 4], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
-#  {'caminho': [0, 5, 6], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
-#  {'caminho': [1, 6, 3, 2], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
-#  {'caminho': [1, 6, 3], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
-#  {'caminho': [1, 6, 5, 4], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
-#  {'caminho': [1, 6, 5], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
-#  {'caminho': [2, 6, 3], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 80},
-#  {'caminho': [2, 6, 5, 4], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 70},
-#  {'caminho': [2, 6, 5], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 70},
-#  {'caminho': [3, 6, 5, 4], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 70},
-#  {'caminho': [3, 6, 5], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 70},
-#  {'caminho': [4, 6, 5], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 70}]

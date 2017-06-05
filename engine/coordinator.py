@@ -10,9 +10,9 @@ from engine.wsm import wsm
 from engine.normalize import normalize
 
 
-def print_matrix(data):
+def print_matrix(filename, data):
     # Write the array to disk
-    with open('../output/coordinator.log', 'w') as outfile:
+    with open(filename, 'w') as outfile:
         # I'm writing a header here just for the sake of readability
         # Any line starting with "#" will be ignored by numpy.loadtxt
         outfile.write('# Array shape: {0}\n'.format(data.shape))
@@ -34,10 +34,10 @@ if __name__ == '__main__':
 
     normalize(r)
 
-    print_matrix(r.data[0].connections)
-    print_matrix(r.data[0].connections_normalize)
+    print_matrix('../output/connections.log', r.data[0].connections)
+    print_matrix('../output/normalize.log', r.data[0].connections_normalize)
 
     result = wsm(r)
 
-    dijkstra(result, 0, 3)
+    print(dijkstra(result, 0, 3))
 

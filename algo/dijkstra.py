@@ -1,6 +1,3 @@
-import numpy as np
-import networkx as nx
-
 
 def dijkstra(matrix, start, target):
     d = []
@@ -28,29 +25,23 @@ def dijkstra(matrix, start, target):
         F.append(r)
         A.remove(r)
         for node in A:
-            if matrix[node][r] == 0:
+            if matrix[node][r] == -1:
                 continue
 
             #print("adj: " + str(node) + " d: " + str(matrix[node][r]))
-            #print(d[node], (d[r] + matrix[node][r]))
             if d[node] != -1 and d[node] < (d[r] + matrix[node][r]):
                 p = d[node]
             else:
                 p = d[r] + matrix[node][r]
-                #print('OK: ' + str(p))
             if p < d[node] or d[node] == -1:
                 d[node] = p
                 rot[node] = r
-            #print("p: " + str(p))
-            #print("d: " + str(d) + " rot: "+ str(rot))
 
-    #print(d)
-    #print(rot)
+    path = [target]
+    for index in range(0, len(rot)):
+        if target == 0: break
+        node = rot[target]
+        path.append(node)
+        target = node
 
-    A = np.array(matrix)
-    G = nx.from_numpy_matrix(A, create_using=nx.DiGraph())
-    #print(nx.dijkstra_path(G, 0, 3))
-
-# grafo = Graph()
-# print(grafo.repository.data)
-# dijkstra(grafo.repository.data[1])
+    return path

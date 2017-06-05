@@ -12,13 +12,23 @@ def normalize(repository):
         if matrix.type == 'cost':
             func = cost_normalize
         else:
-            pass
+            func = benefit_normalize
 
         func = np.vectorize(func)
         matrix.connections_normalize = func(matrix.connections)
 
 
 def cost_normalize(v):
-    max = float(m.connections.max())
-    min = float(m.connections.min())
-    return (max - v) / (max - min)
+    if v is 0:
+        return 0
+    node_max = float(np.max(m.connections[np.nonzero(m.connections)]))
+    node_min = float(np.min(m.connections[np.nonzero(m.connections)]))
+    return (node_max - v) / (node_max - node_min)
+
+
+def benefit_normalize(v):
+    if v is 0:
+        return 0
+    node_max = float(np.max(m.connections[np.nonzero(m.connections)]))
+    node_min = float(np.min(m.connections[np.nonzero(m.connections)]))
+    return 1 - ((node_max - v) / (node_max - node_min))

@@ -19,6 +19,6 @@ if __name__ == '__main__':
 
     result = wsm(r)
 
-    dijkstra(result)
+    dijkstra(result, 0, 3)
 
 

@@ -5,7 +5,7 @@
 
 
 def gargalo(matrix):
-    sugestoes = []
+    sugestoes = {'nos_desconexos': [], 'gargalos': []}
     nos_desconexos = False
     for index_origem in range(len(matrix.nodes)):
         # print('origem: '+str(index_origem))
@@ -16,13 +16,13 @@ def gargalo(matrix):
             s = gargalo_origem_destino(matrix, index_origem, index_destino)
             if s is not None:
                 if not nos_desconexos:
-                    if 'nos_disconexos' in s:
-                        sugestoes.append(s['nos_disconexos'])
-                        del s['nos_disconexos']
+                    if 'nos_desconexos' in s:
+                        sugestoes['nos_desconexos'] = s['nos_desconexos']
+                        del s['nos_desconexos']
                         nos_desconexos = True
                 else:
-                    del s['nos_disconexos']
-                sugestoes.append(s)
+                    del s['nos_desconexos']
+                sugestoes['gargalos'].append(s)
     return sugestoes
 
 
@@ -60,6 +60,9 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
         if cores[i] == 'w':
             descoconexos.append(i)
 
+    if cores[no_destino] == 'w':
+        return None
+
     # construir caminho a partir do DFS
     no_atual = no_destino
     caminho.append(no_atual)
@@ -92,7 +95,7 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
                 origem = index
                 destino = index + 1
 
-    dados = {'gargalo': {'caminho': caminho, 'aresta_origem': origem, 'aresta_destino': destino, 'valor_aresta': valor}}
+    dados = {'caminho': caminho, 'aresta_origem': origem, 'aresta_destino': destino, 'valor_aresta': valor}
 
     if descoconexos:
         dados['nos_desconexos'] = descoconexos

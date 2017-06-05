@@ -5,6 +5,7 @@ from engine.repository import Repository
 
 def gargalo(matrix):
     sugestoes = []
+    nos_desconexos = False
     for index_origem in range(len(matrix.nodes)):
         # print('origem: '+str(index_origem))
         for index_destino in range(index_origem, len(matrix.nodes)):
@@ -13,6 +14,13 @@ def gargalo(matrix):
                 continue
             s = gargalo_origem_destino(matrix, index_origem, index_destino)
             if s is not None:
+                if not nos_desconexos:
+                    if 'nos_disconexos' in s:
+                        sugestoes.append(s['nos_disconexos'])
+                        del s['nos_disconexos']
+                        nos_desconexos = True
+                else:
+                    del s['nos_disconexos']
                 sugestoes.append(s)
     return sugestoes
 

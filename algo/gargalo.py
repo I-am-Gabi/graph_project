@@ -61,32 +61,40 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
     print('caminho: '+str(caminho))
 
     # pegar menor e maior valor das conexões
-    valor_menor = None
-    origem_menor = None
-    destino_menor = None
-
-    valor_maior = None
-    origem_maior = None
-    destino_maior = None
+    valor = None
+    origem = None
+    destino = None
     for index in range(0,(len(caminho)-1)):
-        if valor_menor == None or matrix.connections.item(caminho[index], (caminho[index+1])) < valor_menor:
-            valor_menor = matrix.connections.item(caminho[index], (caminho[index+1]))
-            origem_menor = index
-            destino_menor = index + 1
-        if valor_maior == None or matrix.connections.item(caminho[index], (caminho[index+1])) > valor_maior:
-            valor_maior = matrix.connections.item(caminho[index], (caminho[index + 1]))
-            origem_maior = index
-            destino_maior = index + 1
+        if matrix.type == 'cost':
+            if valor == None or matrix.connections.item(caminho[index], (caminho[index + 1])) > valor:
+                valor = matrix.connections.item(caminho[index], (caminho[index + 1]))
+                origem = index
+                destino = index + 1
+        else:
+            if valor == None or matrix.connections.item(caminho[index], (caminho[index + 1])) < valor:
+                valor = matrix.connections.item(caminho[index], (caminho[index + 1]))
+                origem = index
+                destino = index + 1
 
-    return {'caminho': caminho,
-            'menor':{'aresta_origem': origem_menor,
-                     'aresta_destino': destino_menor,
-                     'valor_aresta': valor_menor},
-            'maior':{'aresta_origem': origem_maior,
-                     'aresta_destino': destino_maior,
-                     'valor_aresta': valor_maior}}
-
+    return {'caminho': caminho, 'aresta_origem': origem,'aresta_destino': destino,'valor_aresta': valor}
 
 reposirorio = Repository()
-print(reposirorio.data[1].connections)
-print(gargalo(reposirorio.data[1]))
+# print(reposirorio.data[0].connections) # matrix de banda
+sugestoes = gargalo(reposirorio.data[0])
+print(sugestoes)
+
+# [{'caminho': [0, 5, 6, 3, 2, 1], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
+#  {'caminho': [0, 5, 6, 3, 2], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
+#  {'caminho': [0, 5, 6, 3], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
+#  {'caminho': [0, 5, 6, 4], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
+#  {'caminho': [0, 5, 6], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
+#  {'caminho': [1, 6, 3, 2], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
+#  {'caminho': [1, 6, 3], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
+#  {'caminho': [1, 6, 5, 4], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
+#  {'caminho': [1, 6, 5], 'aresta_origem': 0, 'aresta_destino': 1, 'valor_aresta': 40},
+#  {'caminho': [2, 6, 3], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 80},
+#  {'caminho': [2, 6, 5, 4], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 70},
+#  {'caminho': [2, 6, 5], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 70},
+#  {'caminho': [3, 6, 5, 4], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 70},
+#  {'caminho': [3, 6, 5], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 70},
+#  {'caminho': [4, 6, 5], 'aresta_origem': 1, 'aresta_destino': 2, 'valor_aresta': 70}]

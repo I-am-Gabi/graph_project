@@ -25,6 +25,8 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
     pais = []
     cores = []
 
+    descoconexos = []
+
     pilha = [no_origem]
 
     for _ in matrix.nodes:
@@ -43,6 +45,11 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
                 pilha.append(adj)
 
         cores[no_atual] = 'b'
+
+    for i in range(len(matrix.nodes)):
+        if cores[i] =='w':
+            descoconexos.append(i)
+
 
     # construir caminho a partir do DFS
     no_atual = no_destino
@@ -76,7 +83,13 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
                 origem = index
                 destino = index + 1
 
-    return {'caminho': caminho, 'aresta_origem': origem,'aresta_destino': destino,'valor_aresta': valor}
+    dados = {}
+
+    dados['gargalo'] = {'caminho': caminho, 'aresta_origem': origem,'aresta_destino': destino,'valor_aresta': valor}
+    if descoconexos:
+        dados['nos_desconexos'] = descoconexos
+
+    return dados
 
 reposirorio = Repository()
 # print(reposirorio.data[0].connections) # matrix de banda

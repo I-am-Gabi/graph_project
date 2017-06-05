@@ -1,5 +1,3 @@
-import numpy as np
-
 
 def wsm(repository):
     size = len(repository.data[0].nodes)
@@ -10,7 +8,7 @@ def wsm(repository):
             wsm_score = 0
             for m in repository.data:
                 wsm_score += m.connections_normalize.item(i, j) * m.weight
-            l.append(float(str(wsm_score)))
+            l.append(float(str(wsm_score)[:4]))
         new_matrix.append(l)
 
     return(new_matrix)

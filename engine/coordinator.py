@@ -14,11 +14,11 @@ if __name__ == '__main__':
 
     normalize(r)
 
+    #print(r.data[0].connections)
     #print(r.data[0].connections_normalize)
-    #print(r.data[1].connections_normalize)
 
     result = wsm(r)
-
+    #print(result)
     dijkstra(result, 0, 3)
 
 

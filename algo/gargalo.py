@@ -2,19 +2,23 @@
 # -*- coding: utf-8 -*-
 
 # Algorítmo para verificação e identificação de gargalos.
-
+from engine.repository import Repository
 
 def gargalo(matrix):
     sugestoes = {'nos_desconexos': [], 'gargalos': []}
     nos_desconexos = False
+    insert = True
     for index_origem in range(len(matrix.nodes)):
         # print('origem: '+str(index_origem))
         for index_destino in range(index_origem, len(matrix.nodes)):
             # print('destino: ' + str(index_destino))
             if index_origem == index_destino:
                 continue
+
             s = gargalo_origem_destino(matrix, index_origem, index_destino)
+
             if s is not None:
+                insert = True
                 if not nos_desconexos:
                     if 'nos_desconexos' in s:
                         sugestoes['nos_desconexos'] = s['nos_desconexos']
@@ -22,7 +26,13 @@ def gargalo(matrix):
                         nos_desconexos = True
                 else:
                     del s['nos_desconexos']
-                sugestoes['gargalos'].append(s)
+
+                for sugestao in sugestoes['gargalos']:
+                    if sugestao['aresta_origem'] == s['aresta_origem'] and sugestao['aresta_destino'] == s['aresta_destino']:
+                        insert = False
+
+                if insert:
+                    sugestoes['gargalos'].append(s)
     return sugestoes
 
 
@@ -77,7 +87,7 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
     caminho = []
     for no in caminho_reverso:
         caminho.append(no)
-    print('caminho: '+str(caminho))
+    # print('caminho: '+str(caminho))
 
     # pegar menor e maior valor das conexões
     valor = None
@@ -87,13 +97,13 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
         if matrix.type == 'cost':
             if valor is None or matrix.connections.item(caminho[index], (caminho[index + 1])) > valor:
                 valor = matrix.connections.item(caminho[index], (caminho[index + 1]))
-                origem = index
-                destino = index + 1
+                origem = caminho[index]
+                destino = caminho[index + 1]
         else:
             if valor is None or matrix.connections.item(caminho[index], (caminho[index + 1])) < valor:
                 valor = matrix.connections.item(caminho[index], (caminho[index + 1]))
-                origem = index
-                destino = index + 1
+                origem = caminho[index]
+                destino = caminho[index + 1]
 
     dados = {'caminho': caminho, 'aresta_origem': origem, 'aresta_destino': destino, 'valor_aresta': valor}
 

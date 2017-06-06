@@ -41,7 +41,7 @@ if __name__ == '__main__':
                 normalize(r)
 
                 result = wsm(r)
-
+                print('Nós do grafo: '+str(r.data[0].nodes))
                 start = eval(input('Escolha o nó de partida do pacote\n'))
                 target = eval(input('Escolha o nó de chegada do pacote\n'))
 

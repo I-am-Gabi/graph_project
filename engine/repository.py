@@ -4,8 +4,10 @@ from engine.matrix import Matrix
 
 
 class Repository:
-    def __init__(self):
+    def __init__(self, data=None):
         self.data = []
+        if data:
+            self.data = data
         self.build()
 
     def build(self):

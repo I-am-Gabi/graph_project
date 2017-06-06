@@ -2,10 +2,10 @@ import numpy as np
 
 
 class Matrix(object):
-    def __init__(self):
-        self.connections = None
+    def __init__(self, connections=None, nodes=None):
+        self.connections = connections
         self.connections_normalize = None
-        self.nodes = None
+        self.nodes = nodes
         self.type = None
         self.name = None
         self.weight = None

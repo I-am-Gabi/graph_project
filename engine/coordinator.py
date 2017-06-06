@@ -3,6 +3,8 @@
 import sys
 import numpy as np
 
+from engine.Action import Action
+
 sys.path.append('../')
 
 from algo.dijkstra import dijkstra
@@ -12,23 +14,28 @@ from engine.repository import Repository
 from engine.wsm import wsm
 from engine.normalize import normalize
 
-def print_matrix(filename, data):
-    # Write the array to disk
-    with open(filename, 'w') as outfile:
-        # I'm writing a header here just for the sake of readability
-        # Any line starting with "#" will be ignored by numpy.loadtxt
-        outfile.write('# Array shape: {0}\n'.format(data.shape))
 
-        # Iterating through a ndimensional array produces slices along
-        # the last axis. This is equivalent to data[i,:,:] in this case
-        for data_slice in data:
-            # The formatting string indicates that I'm writing out
-            # the values in left-justified columns 7 characters in width
-            # with 2 decimal places.
-            np.savetxt(outfile, data_slice, fmt='%-7.2f')
+def run(action, choice=None, start=None, target=None):
+    r = Repository()
+    r.build()
 
-            # Writing out a break to indicate different slices...
-            # outfile.write('# New slice\n')
+    if action == Action.SPM:
+        return(run_spm(r, start, target))
+    elif action == Action.BOTTLENECK:
+        return(run_analyzer_bottleneck(choice))
+
+
+def run_spm(r, start, target):
+    normalize(r)
+    final_matrix = wsm(r)
+    best_path = dijkstra(final_matrix, start, target)[::-1]
+    return best_path
+
+
+def run_analyzer_bottleneck(choice):
+    matrix_index = choice - 1
+    return gargalo(r.data[matrix_index])
+
 
 if __name__ == '__main__':
     while True:
@@ -41,8 +48,8 @@ if __name__ == '__main__':
                 normalize(r)
 
                 result = wsm(r)
-                
-                print('Nós do grafo: '+str(r.data[0].nodes))
+
+                print('Nós do grafo: ' + str(r.data[0].nodes))
                 start = eval(input('Escolha o nó de partida do pacote\n'))
                 target = eval(input('Escolha o nó de chegada do pacote\n'))
 

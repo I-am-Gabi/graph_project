@@ -77,7 +77,7 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
     caminho = []
     for no in caminho_reverso:
         caminho.append(no)
-    print('caminho: '+str(caminho))
+    # print('caminho: '+str(caminho))
 
     # pegar menor e maior valor das conexões
     valor = None

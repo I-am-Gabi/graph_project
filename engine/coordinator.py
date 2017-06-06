@@ -39,7 +39,6 @@ if __name__ == '__main__':
             # dijikstra
             if escolha == 1:
                 normalize(r)
-
                 result = wsm(r)
                 print('Nós do grafo: '+str(r.data[0].nodes))
                 start = eval(input('Escolha o nó de partida do pacote\n'))

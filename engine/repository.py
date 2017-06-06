@@ -5,10 +5,11 @@ from engine.matrix import Matrix
 
 class Repository:
     def __init__(self, data=None):
-        self.data = []
         if data:
             self.data = data
-        self.build()
+        else:
+            self.data = []
+            self.build()
 
     def build(self):
         files = []

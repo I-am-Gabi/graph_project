@@ -20,7 +20,7 @@ def dijkstra(matrix, start, target):
             if d[node] != -1 and d[node] < min_dist:
                 min_dist = d[node]
                 r = node
-
+        print(r)
         F.append(r)
         A.remove(r)
         for node in A:

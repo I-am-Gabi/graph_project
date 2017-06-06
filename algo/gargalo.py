@@ -30,6 +30,7 @@ def gargalo(matrix):
                 for sugestao in sugestoes['gargalos']:
                     if sugestao['aresta_origem'] == s['aresta_origem'] and sugestao['aresta_destino'] == s['aresta_destino']:
                         insert = False
+                        break
 
                 if insert:
                     sugestoes['gargalos'].append(s)

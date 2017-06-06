@@ -13,11 +13,16 @@
 - Rode o ```pip``` para instalar as dependências do sistema com ```pip install -r requirements.txt```.
 
 ### Rodando a aplicação
-Considerando que todo o ambiente foi corretamente instalado e configurado, sempre que for executar o sistema:
-
+#### Executando casos base
+Considerando que todo o ambiente foi corretamente instalado e configurado, sempre que for executar os casos base do sistema:
 - Execute novamente o passo de ativação do ambiente virtual
 - Dentro da pasta ```engine/``` execute o comando ```python coordinator.py```
     - Escolha as opções do menu seguindo as instruções
+
+#### Executando caso de teste grande
+Considerando que todo o ambiente foi corretamente instalado e configurado, sempre que for executar o caso de teste de carga do sistema:
+- Execute novamente o passo de ativação do ambiente virtual
+- Dentro da pasta ```big_input/``` execute o comando ```python big_input_generator.py```
 
 ## Referencias
 - [**Weighted sum model**](https://en.wikipedia.org/wiki/Weighted_sum_model)

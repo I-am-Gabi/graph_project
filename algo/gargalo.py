@@ -4,6 +4,8 @@
 # Algorítmo para verificação e identificação de gargalos.
 from engine.repository import Repository
 
+# 0(3N^3 + (E*(N^2)/2) - 6n^2 - E*N)
+# O(((N^2)/2) - N) * O(6N + E)
 def gargalo(matrix):
     sugestoes = {'nos_desconexos': [], 'gargalos': []}
     nos_desconexos = False
@@ -36,7 +38,7 @@ def gargalo(matrix):
                     sugestoes['gargalos'].append(s)
     return sugestoes
 
-
+# O(6N+E)
 def gargalo_origem_destino(matrix, index_origem, index_destino):
 
     no_origem = index_origem

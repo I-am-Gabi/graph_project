@@ -8,12 +8,34 @@ import sys
 sys.path.append('../')
 
 from algo.dijkstra import dijkstra
+from algo.gargalo import gargalo
 from engine.normalize import normalize
 from engine.wsm import wsm
 
 from engine.matrix import Matrix
 from engine.repository import Repository
 
+
+def identify_bottleneck(n):
+    linhas = n
+    colunas = n
+
+    m01 = np.random.randint(1, 100, size=(linhas, colunas))
+
+    for linha in range(linhas):
+        for coluna in range(colunas):
+            if linha == coluna:
+                m01.itemset((linha, coluna), -1)
+            elif coluna > linha:
+                continue
+            elif coluna < linha:
+                m01.itemset((coluna, linha), m01.item(linha, coluna))
+
+    nodes = list(range(0, linhas))
+    m1 = Matrix(m01, nodes, type="benefit", name="banda", weight=0.3)
+
+    # 0(3N^3 + (E*(N^2)/2) - 6n^2 - E*N)
+    result = gargalo(m1)
 
 def small_path(n):
     linhas = n
@@ -73,8 +95,8 @@ def plotTC(fn, nMin, nMax, nInc, nTests):
 def main():
     print('Analyzing Algorithms...')
 
-    plotTC(small_path, 10, 100, 10, 10)
-
+    # plotTC(small_path, 10, 100, 10, 10)
+    plotTC(identify_bottleneck, 10, 60, 10, 10)
     # enable this in case you want to set y axis limits
     # pyplot.ylim((-0.1, 0.5))
 

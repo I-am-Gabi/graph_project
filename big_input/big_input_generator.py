@@ -108,7 +108,7 @@ def main():
     p_small = plotTC(small_path, 10, 110, 10, 2)
     p_gargalo = plotTC(gargalo, 10, 110, 10, 2)
     pyplot.legend([p_small, p_gargalo,], ['Caminho Mais Curto', 'Gargalos', ])
-    # pyplot.legend([p_gargalo, ], ['Gargalo', ])
+    # pyplot.legend([p_small, ], ['Caminho Mais Curto', ])
 
     # show plot
     pyplot.show()

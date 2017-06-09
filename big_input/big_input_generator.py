@@ -16,7 +16,7 @@ from engine.matrix import Matrix
 from engine.repository import Repository
 
 
-def identify_bottleneck(n):
+def criar_matrix(n):
     linhas = n
     colunas = n
 
@@ -34,32 +34,41 @@ def identify_bottleneck(n):
     nodes = list(range(0, linhas))
     m1 = Matrix(m01, nodes, type="benefit", name="banda", weight=0.3)
 
-    # 0(3N^3 + (E*(N^2)/2) - 6n^2 - E*N)
-    result = gargalo(m1)
+    return m1
 
-def small_path(n):
-    linhas = n
-    colunas = n
+def salvar_matrix(matrix):
+    f = open('big_input_'+str(len(matrix.nodes))+'.txt', 'w')
+    string = ''
+    for i in range(len(matrix.nodes)):
+        for j in range(len(matrix.nodes)):
+            string += str(matrix.connections.item(i, j))
+            if j != (len(matrix.nodes)-1):
+                string += ','
+        string += '\n'
 
-    m01 = np.random.randint(1, 100, size=(linhas, colunas))
-    m02 = np.random.randint(1, 100, size=(linhas, colunas))
+    string += '\n'
+    string += 'nodes: '
+    for i in range(len(matrix.nodes)):
+        string += str(i)
+        if i != (len(matrix.nodes) -1):
+            string += ', '
+    string += '\n'
+    string += 'type: benefit\n'
+    string += 'name: random\n'
+    string += 'weight: 0.8'
 
-    for linha in range(linhas):
-        for coluna in range(colunas):
-            if linha == coluna:
-                m01.itemset((linha, coluna), -1)
-                m02.itemset((linha, coluna), -1)
-            elif coluna > linha:
-                continue
-            elif coluna < linha:
-                m01.itemset((coluna, linha), m01.item(linha, coluna))
-                m02.itemset((coluna, linha), m02.item(linha, coluna))
+    f.write(string)
+    f.close()
 
-    nodes = list(range(0, linhas))
-    m1 = Matrix(m01, nodes, type="cost", name="cost", weight=0.3)
-    m2 = Matrix(m02, nodes, type="cost", name="distance", weight=0.5)
+def load_matrix(n):
+    matrix = Matrix()
+    matrix.build('big_input_'+str(n)+'.txt')
+    return matrix
 
-    r = Repository([m1, m2])
+def construir_big_input(n):
+    matrix = criar_matrix(n)
+    salvar_matrix(matrix)
+
 
     # O(n^2)
     normalize(r)
@@ -81,12 +90,12 @@ def plotTC(fn, nMin, nMax, nInc, nTests):
     """
     x = []
     y = []
-    for i in range(nMin, nMax, nInc):
-        N = i
-        testNTimer = timeit.Timer(partial(fn, N))
-        t = testNTimer.timeit(number=nTests)
-        x.append(i)
-        y.append(t)
+    for tamanho in range(nMin, nMax, nInc):
+        matrix = load_matrix(tamanho)
+        testNTimer = timeit.Timer(partial(fn, matrix))
+        tempo = testNTimer.timeit(number=nTests)
+        x.append(tamanho)
+        y.append(tempo)
     p1 = pyplot.plot(x, y, 'o')
     # pyplot.legend([p1,], [fn.__name__, ])
 
@@ -106,4 +115,6 @@ def main():
 
 # call main
 if __name__ == '__main__':
+    # for i in range(10, 110, 10):
+    #     construir_big_input(i)
     main()

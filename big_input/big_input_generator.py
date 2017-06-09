@@ -70,6 +70,9 @@ def construir_big_input(n):
     salvar_matrix(matrix)
 
 
+def small_path(matrix):
+    r = Repository([matrix])
+
     # O(n^2)
     normalize(r)
 
@@ -79,10 +82,8 @@ def construir_big_input(n):
     start = 0
     target = 3
 
-    #O(n^2)
+    # O(n^2)
     path = dijkstra(result, start, target)[::-1]
-
-
 
 def plotTC(fn, nMin, nMax, nInc, nTests):
     """
@@ -104,8 +105,8 @@ def plotTC(fn, nMin, nMax, nInc, nTests):
 def main():
     print('Analyzing Algorithms...')
 
-    # plotTC(small_path, 10, 100, 10, 10)
-    plotTC(identify_bottleneck, 10, 60, 10, 10)
+    plotTC(small_path, 10, 100, 10, 10)
+    plotTC(gargalo, 10, 60, 10, 10)
     # enable this in case you want to set y axis limits
     # pyplot.ylim((-0.1, 0.5))
 

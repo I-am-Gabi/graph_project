@@ -97,18 +97,17 @@ def plotTC(fn, nMin, nMax, nInc, nTests):
         tempo = testNTimer.timeit(number=nTests)
         x.append(tamanho)
         y.append(tempo)
-    p1 = pyplot.plot(x, y, 'o')
-    # pyplot.legend([p1,], [fn.__name__, ])
+    p1, = pyplot.plot(x, y, 'o')
+    return p1
 
 
 # main() function
 def main():
     print('Analyzing Algorithms...')
 
-    plotTC(small_path, 10, 100, 10, 10)
-    plotTC(gargalo, 10, 60, 10, 10)
-    # enable this in case you want to set y axis limits
-    # pyplot.ylim((-0.1, 0.5))
+    p_small = plotTC(small_path, 10, 50, 10, 10)
+    p_gargalo = plotTC(gargalo, 10, 50, 10, 10)
+    pyplot.legend([p_small, p_gargalo,], ['Caminho Mais Curto', 'Gargalos', ])
 
     # show plot
     pyplot.show()

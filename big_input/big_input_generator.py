@@ -105,10 +105,10 @@ def plotTC(fn, nMin, nMax, nInc, nTests):
 def main():
     print('Analyzing Algorithms...')
 
-    p_small = plotTC(small_path, 10, 100, 10, 2)
-    # p_gargalo = plotTC(gargalo, 10, 80, 10, 2)
-    # pyplot.legend([p_small, p_gargalo,], ['Caminho Mais Curto', 'Gargalos', ])
-    pyplot.legend([p_small, ], ['Caminho Mais Curto', ])
+    p_small = plotTC(small_path, 10, 110, 10, 2)
+    p_gargalo = plotTC(gargalo, 10, 110, 10, 2)
+    pyplot.legend([p_small, p_gargalo,], ['Caminho Mais Curto', 'Gargalos', ])
+    # pyplot.legend([p_gargalo, ], ['Gargalo', ])
 
     # show plot
     pyplot.show()

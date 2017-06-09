@@ -106,9 +106,10 @@ def main():
     print('Analyzing Algorithms...')
 
     p_small = plotTC(small_path, 10, 110, 10, 2)
-    p_gargalo = plotTC(gargalo, 10, 110, 10, 2)
+    p_gargalo = plotTC(gargalo, 10, 60, 10, 2)
     pyplot.legend([p_small, p_gargalo,], ['Caminho Mais Curto', 'Gargalos', ])
     # pyplot.legend([p_small, ], ['Caminho Mais Curto', ])
+    # pyplot.legend([p_gargalo, ], ['Gargalos', ])
 
     # show plot
     pyplot.show()

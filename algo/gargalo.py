@@ -47,7 +47,6 @@ def gargalo_origem_destino(matrix, index_origem, index_destino):
     caminho = []
     pais = []
     cores = []
-
     descoconexos = []
 
     pilha = [no_origem]

@@ -22,7 +22,7 @@ Considerando que todo o ambiente foi corretamente instalado e configurado, sempr
 #### Executando caso de teste grande
 Considerando que todo o ambiente foi corretamente instalado e configurado, sempre que for executar o caso de teste de carga do sistema:
 - Execute novamente o passo de ativação do ambiente virtual
-- Dentro da pasta ```big_input/``` execute o comando ```python big_input_generator.py```
+- Dentro da pasta ```test_case/``` execute o comando ```python test_case.py```
 
 ## Referencias
 - [**Weighted sum model**](https://en.wikipedia.org/wiki/Weighted_sum_model)
